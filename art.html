@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>빈센트 반 고흐  작품들</title>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+		<script>
+			$(document).ready(function(){				
+				//썸네일 버튼 클릭
+				let s1 = ""; //썸네일이미지 주소(src)
+				let a1 = ""; //썸네일이미지 대체글(alt)
+				$("#arts button").click(function(){
+					s1 = $(this).children().attr("src");
+					a1 = $(this).children().attr("alt");
+					console.log(s1 + "..." + a1);
+					
+					const s2 = s1.replace("." , "_big.");
+					console.log(s2);
+					
+					$("#popup img").attr({"src" : s2 });			
+					$("#popup h2").text( a1 );
+					
+					$("#popup").fadeIn();					
+				});
+				
+				//큰팝업 닫기
+				$("#popup button").click(function(){
+						$("#popup").fadeOut();
+				});
+				
+				
+			});////전체 끝
+		</script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+		<style>
+			* {padding:0; margin:0;}
+			
+			::-webkit-scrollbar {width:0.0001pt;}
+			
+			body 	{font:10pt 'Nanum Gothic', sans-serif; background:black; width:414px;
+					 margin:auto; position:relative;
+			}
+			img {max-width:100%; display:block;}
+			.material-symbols-sharp {
+			  font-variation-settings:
+			  'FILL' 0,'wght' 700, 'GRAD' 0, 'opsz' 48
+			}			
+			
+			/*썸네일 버튼*/
+			#arts h2 	{display:none;}
+			#arts div	{display:flex; flex-wrap:wrap;}
+			#arts button {background:none; border:none;}
+			
+			/*큰이미지 팝업*/
+			#popup 	{position:fixed; top:0; height:100vh;
+					 overflow:auto; display:none; background:black;
+			}
+			#popup div {display:flex; background:black;
+						padding:10px; align-items:center;
+			}
+			#popup h2	{flex:1; color:white; font-size:1.5rem;
+						 font-weight:normal;
+			}
+			#popup button {color:gray; background:none; border:none;
+						   font-size:3.5rem;
+			}
+			#popup img   {width:414px;} 
+
+			/*엠베드*/
+			embed {width:414px; height:51.9pt; border:none; overflow:hidden;
+				   position:fixed; top:0; 
+			}			
+		</style>
+	</head>
+	<body>
+		<embed src="header.html">
+		<section id="arts">
+			<h2>메인</h2>
+			<img src="images/art_title.jpg" alt="그의 작품">
+			<div>
+				<button type="button"><img src="images/art_01.jpg" alt="노란집"></button>
+				<button type="button"><img src="images/art_02.jpg" alt="감자 먹는 사람들"></button>
+				<button type="button"><img src="images/art_03.jpg" alt="아를르의 포룸 광장의 카페 테라스"></button>
+				<button type="button"><img src="images/art_04.jpg" alt="해바라기"></button>
+				<button type="button"><img src="images/art_05.jpg" alt="아를의 고흐의 방"></button>
+				<button type="button"><img src="images/art_06.jpg" alt="까마귀가 있는 밀밭"></button>
+				<button type="button"><img src="images/art_07.jpg" alt="펠트 모자를 쓴 자화상"></button>
+				<button type="button"><img src="images/art_08.jpg" alt="별이 빛나는 밤에"></button>
+				<button type="button"><img src="images/art_09.jpg" alt="삼나무가 있는 밀밭"></button>
+				<button type="button"><img src="images/art_10.jpg" alt="자화상"></button>
+				<button type="button"><img src="images/art_11.jpg" alt="론강의 별이 빛나는 밤에"></button>
+				<button type="button"><img src="images/art_12.jpg" alt="꽃피는 아몬드 나무"></button>
+				<button type="button"><img src="images/art_13.jpg" alt="몸마주르의 붉은 포도밭"></button>
+				<button type="button"><img src="images/art_14.jpg" alt="밤의 프로방스 시골길"></button>
+				<button type="button"><img src="images/art_15.jpg" alt="아이리스"></button>
+			</div>
+		</section>
+		<section id="popup">
+			<div>
+				<h2>노란집</h2>
+				<button type="button" class="material-symbols-sharp">close</button>
+			</div>
+			<img src="images/art_01_big.jpg" alt="노란집">
+		</section>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
